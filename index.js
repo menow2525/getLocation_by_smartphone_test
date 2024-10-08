@@ -1,11 +1,17 @@
-var lat;
-var long;
+let map;
+var lat = 0;
+var long = 0;
 
 function displayMap() {
-  var map = L.map("map", {
+  var container = L.DomUtil.get("map");
+  if (container != null) {
+    container._leaflet_id = null;
+  }
+
+  map = L.map("map", {
     zoomDelta: 0.01, // ズームの変化量を調整
     zoomSnap: 0.01, // ズームスナップの設定
-  }).setView([lat, long], 15);
+  }).setView([lat, long], 16);
 
   L.marker([lat, long]).addTo(map).bindPopup("now location!");
 
