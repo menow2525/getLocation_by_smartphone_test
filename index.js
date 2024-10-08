@@ -9,9 +9,9 @@ function displayMap() {
   }
 
   map = L.map("map", {
-    zoomDelta: 0.01, // ズームの変化量を調整
-    zoomSnap: 0.01, // ズームスナップの設定
-  }).setView([lat, long], 16);
+    zoomDelta: 0.2, // ズームの変化量を調整
+    zoomSnap: 0.2, // ズームスナップの設定
+  }).setView([lat, long], 18);
 
   L.marker([lat, long]).addTo(map).bindPopup("now location!");
 
