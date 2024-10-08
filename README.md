@@ -1,0 +1,1 @@
+# getLocation_by_smartphone_test
