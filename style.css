@@ -1,4 +1,5 @@
 .textBlock {
+  margin: 6px;
   position: fixed;
 }
 #map {
