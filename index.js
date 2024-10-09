@@ -55,7 +55,12 @@ window.onload = function() {
 function displayMap() {
   map.setView([lat, long], 18);
     
-  
+  if (!marker) {
+      marker = L.marker([lat, long], {icon:pulsingIcon2}).addTo(map).bindPopup("now location!");
+  } else {
+  // 既存のマーカーの位置を更新
+      marker.setLatLng([lat, long]).bindPopup("now location!");
+  }
 }
 
 function displayLogData() {
