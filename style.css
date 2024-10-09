@@ -1,11 +1,13 @@
 #accuracy {
   position: fixed;
   bottom: 0;
+  z-index: 9999;
 }
 
 #speed {
   position: fixed;
   bottom: 0;
+  z-index: 9999;
 }
 
 #map {
