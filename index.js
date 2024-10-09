@@ -12,7 +12,7 @@ var pulsingIcon2 = L.icon.pulse({
    ,heartbeat: 2
 });
 
-function displayMap() {
+window.onload = function() {
   var container = L.DomUtil.get("map");
   if (container != null) {
     container._leaflet_id = null;
@@ -22,14 +22,16 @@ function displayMap() {
     zoomDelta: 0.2, // ズームの変化量を調整
     zoomSnap: 0.2, // ズームスナップの設定
   }).setView([lat, long], 18);
-
-  L.marker([lat, long], {icon:pulsingIcon2}).addTo(map).bindPopup("now location!");
-
-  //OpenStreetMapの地図
+    
+    //OpenStreetMapの地図
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution:
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
   }).addTo(map);
+}
+
+function displayMap() {
+  L.marker([lat, long], {icon:pulsingIcon2}).addTo(map).bindPopup("now location!");
 }
 
 function displayLogData() {
