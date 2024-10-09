@@ -38,10 +38,10 @@ navigator.geolocation.watchPosition(
     speed = position.coords.speed; // 速度を取得
 
     if (accuracy == null) {
-      accuracy = 999;
+      accuracy = 999.0;
     }
     if (speed == null) {
-      speed = 0;
+      speed = 0.0;
     }
 
     displayMap();
