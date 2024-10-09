@@ -11,8 +11,7 @@ var pulsingIcon2 = L.icon.pulse({
    ,fillColor:'#57c6fd'
    ,heartbeat: 2
 });
-
-var mapMarker;
+let mapMarker;
 
 function getNowLocation() {
     navigator.geolocation.getCurrentPosition(
@@ -55,7 +54,7 @@ window.onload = function() {
 
 function displayMap() {
   map.removeLayer(mapMarker);
-  map._onResize();
+  map.setView([lat, long], 18);
   mapMarker = L.marker([lat, long], {icon:pulsingIcon2}).addTo(map).bindPopup("now location!");
 }
 
