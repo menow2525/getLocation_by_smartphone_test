@@ -42,7 +42,7 @@ navigator.geolocation.watchPosition(
     lat = position.coords.latitude; // 緯度を取得
     long = position.coords.longitude; // 経度を取得
     accuracy = position.coords.accuracy; // 位置の精度取得(何メートルほど誤差があるか)
-    speed = position.coords.speed; // 速度を取得
+    speed = ((position.coords.speed) * 3600) / 1000; // 速度を取得
 
     if (accuracy == null) {
       accuracy = 999.9;
@@ -60,9 +60,9 @@ navigator.geolocation.watchPosition(
     error;
   },
   {
-    timeout: 30000, // GPS取得のタイムアウト時間を設定するオプション。(ミリ秒)これを過ぎるとエラーになる。
     enableHighAccuracy: true, // 高精度で測定するオプション
-    maximumAge: 2000,
+    timeout: 60000, // GPS取得のタイムアウト時間を設定するオプション。(ミリ秒)これを過ぎるとエラーになる。
+    maximumAge: 0,
   }
 );
 
