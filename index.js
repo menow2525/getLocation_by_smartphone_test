@@ -25,6 +25,11 @@ function displayMap() {
   }).addTo(map);
 }
 
+function displayLogData() {
+  document.getElementById("accuracy").textContent = accuracy + "m";
+  document.getElementById("speed").textContent = speed + "km/h";
+}
+
 navigator.geolocation.watchPosition(
   (position) => {
     lat = position.coords.latitude; // 緯度を取得
@@ -33,6 +38,7 @@ navigator.geolocation.watchPosition(
     speed = position.coords.speed; // 速度を取得
 
     displayMap();
+    displayLogData();
   },
   (error) => {
     // エラー処理（今回は特に何もしない）
