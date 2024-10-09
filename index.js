@@ -5,6 +5,13 @@ var long = 0;
 var accuracy = 0;
 var speed = 0;
 
+var pulsingIcon2 = L.icon.pulse({
+    iconSize:[20,20]
+   ,color:'#57c6fd'
+   ,fillColor:'#57c6fd'
+   ,heartbeat: 2
+});
+
 function displayMap() {
   var container = L.DomUtil.get("map");
   if (container != null) {
@@ -16,7 +23,7 @@ function displayMap() {
     zoomSnap: 0.2, // ズームスナップの設定
   }).setView([lat, long], 18);
 
-  L.marker([lat, long]).addTo(map).bindPopup("now location!");
+  L.marker([lat, long], {icon:pulsingIcon2}).addTo(map).bindPopup("now location!");
 
   //OpenStreetMapの地図
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
