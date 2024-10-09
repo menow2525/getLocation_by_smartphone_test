@@ -27,7 +27,8 @@ window.onload = function() {
         enableHighAccuracy: true, // 高精度で測定するオプション
         maximumAge: 60000,
         timeout: 30000, // GPS取得のタイムアウト時間を設定するオプション。(ミリ秒)これを過ぎるとエラーになる。
-    );
+    }
+  );
     
   var container = L.DomUtil.get("map");
   if (container != null) {
