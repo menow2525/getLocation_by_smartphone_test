@@ -1,6 +1,6 @@
 #textBlock {
   position: fixed;
-  bottom: 0;
+  bottom: 10px;
   z-index: 9999;
 }
 
