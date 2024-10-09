@@ -26,8 +26,8 @@ function displayMap() {
 }
 
 function displayLogData() {
-  document.getElementById("accuracy").textContent = accuracy + "m";
-  document.getElementById("speed").textContent = speed + "km/h";
+  document.getElementById("accuracy").textContent = accuracy.toFixed(3) + "m";
+  document.getElementById("speed").textContent = speed.toFixed(digit) + "km/h";
 }
 
 navigator.geolocation.watchPosition(
