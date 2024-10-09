@@ -27,7 +27,7 @@ function displayMap() {
 
 function displayLogData() {
   document.getElementById("accuracy").textContent = accuracy.toFixed(3) + "m";
-  document.getElementById("speed").textContent = speed.toFixed(digit) + "km/h";
+  document.getElementById("speed").textContent = speed.toFixed(0) + "km/h";
 }
 
 navigator.geolocation.watchPosition(
@@ -38,10 +38,10 @@ navigator.geolocation.watchPosition(
     speed = position.coords.speed; // 速度を取得
 
     if (accuracy == null) {
-      accuracy = 999.0;
+      accuracy = 999.9;
     }
     if (speed == null) {
-      speed = 0.0;
+      speed = 0;
     }
 
     displayMap();
