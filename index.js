@@ -31,7 +31,7 @@ window.onload = function() {
 }
 
 function displayMap() {
-  map.removeLayer();
+  map.removeLayer(L.marker);
   L.marker([lat, long], {icon:pulsingIcon2}).addTo(map).bindPopup("now location!");
 }
 
