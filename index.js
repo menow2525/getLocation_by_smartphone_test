@@ -11,7 +11,7 @@ var pulsingIcon2 = L.icon.pulse({
    ,fillColor:'#57c6fd'
    ,heartbeat: 2
 });
-let mapMarker;
+let marker;
 
 function getNowLocation() {
     navigator.geolocation.getCurrentPosition(
@@ -53,9 +53,14 @@ window.onload = function() {
 }
 
 function displayMap() {
-  map.removeLayer(mapMarker);
   map.setView([lat, long], 18);
-  mapMarker = L.marker([lat, long], {icon:pulsingIcon2}).addTo(map).bindPopup("now location!");
+    
+  if (!marker) {
+      marker = L.marker([lat, lon], {icon:pulsingIcon2}).addTo(map).bindPopup("now location!");
+  } else {
+  // 既存のマーカーの位置を更新
+      marker.setLatLng([lat, lon]).bindPopup("now location!");
+  }
 }
 
 function displayLogData() {
