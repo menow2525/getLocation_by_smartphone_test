@@ -13,7 +13,7 @@ var pulsingIcon2 = L.icon.pulse({
 });
 
 window.onload = function() {
-  navigator.geoLocation.getCurrentPosition(
+  navigator.geolocation.getCurrentPosition(
     (position) => {
         lat = position.coords.latitude; // 緯度を取得
         long = position.coords.longitude; // 経度を取得
