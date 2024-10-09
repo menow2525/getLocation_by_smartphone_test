@@ -2,6 +2,9 @@ let map;
 var lat = 0;
 var long = 0;
 
+var accuracy = 0;
+var speed = 0;
+
 function displayMap() {
   var container = L.DomUtil.get("map");
   if (container != null) {
@@ -26,14 +29,20 @@ navigator.geolocation.watchPosition(
   (position) => {
     lat = position.coords.latitude; // 緯度を取得
     long = position.coords.longitude; // 経度を取得
+    accuracy = position.coords.accuracy; // 位置の精度取得(何メートルほど誤差があるか)
+    speed = position.coords.speed; // 速度を取得
 
     displayMap();
   },
   (error) => {
     // エラー処理（今回は特に何もしない）
+    console.log(error);
     error;
   },
   {
+    timeout: 10000, // GPS取得のタイムアウト時間を設定するオプション。(ミリ秒)これを過ぎるとエラーになる。
     enableHighAccuracy: true, // 高精度で測定するオプション
+    maximumAge: 1000,
   }
 );
+
