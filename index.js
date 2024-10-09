@@ -46,9 +46,9 @@ navigator.geolocation.watchPosition(
     error;
   },
   {
-    timeout: 10000, // GPS取得のタイムアウト時間を設定するオプション。(ミリ秒)これを過ぎるとエラーになる。
+    timeout: 30000, // GPS取得のタイムアウト時間を設定するオプション。(ミリ秒)これを過ぎるとエラーになる。
     enableHighAccuracy: true, // 高精度で測定するオプション
-    maximumAge: 1000,
+    maximumAge: 2000,
   }
 );
 
