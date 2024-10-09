@@ -1,9 +1,11 @@
 #accuracy {
   position: fixed;
+  bottom: 0;
 }
 
 #speed {
   position: fixed;
+  bottom: 0;
 }
 
 #map {
