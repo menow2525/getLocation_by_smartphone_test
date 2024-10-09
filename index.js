@@ -37,6 +37,13 @@ navigator.geolocation.watchPosition(
     accuracy = position.coords.accuracy; // 位置の精度取得(何メートルほど誤差があるか)
     speed = position.coords.speed; // 速度を取得
 
+    if (accuracy == null) {
+      accuracy = 999;
+    }
+    if (speed == null) {
+      speed = 0;
+    }
+
     displayMap();
     displayLogData();
   },
