@@ -12,7 +12,7 @@ var pulsingIcon2 = L.icon.pulse({
    ,heartbeat: 2
 });
 
-const mapMarker;
+var mapMarker;
 
 function getNowLocation() {
     navigator.geolocation.getCurrentPosition(
