@@ -13,6 +13,23 @@ var pulsingIcon2 = L.icon.pulse({
 });
 
 window.onload = function() {
+  navigator.geoLocation.getCurrentPosition(success, error, options) {
+    (position) => {
+        lat = position.coords.latitude; // 緯度を取得
+        long = position.coords.longitude; // 経度を取得
+    },
+    (error) => {
+        // エラー処理（今回は特に何もしない）
+        alert(error);
+        error;
+    },
+    {
+        enableHighAccuracy: true, // 高精度で測定するオプション
+        maximumAge: 60000,
+        timeout: 30000, // GPS取得のタイムアウト時間を設定するオプション。(ミリ秒)これを過ぎるとエラーになる。
+    ]
+  }
+    
   var container = L.DomUtil.get("map");
   if (container != null) {
     container._leaflet_id = null;
