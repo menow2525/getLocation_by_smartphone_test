@@ -56,7 +56,7 @@ navigator.geolocation.watchPosition(
   },
   (error) => {
     // エラー処理（今回は特に何もしない）
-    console.log(error);
+    alert(error);
     error;
   },
   {
