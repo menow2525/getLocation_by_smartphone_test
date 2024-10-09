@@ -13,7 +13,7 @@ var pulsingIcon2 = L.icon.pulse({
 });
 
 window.onload = function() {
-  navigator.geoLocation.getCurrentPosition(success, error, options) {
+  navigator.geoLocation.getCurrentPosition(
     (position) => {
         lat = position.coords.latitude; // 緯度を取得
         long = position.coords.longitude; // 経度を取得
@@ -27,8 +27,7 @@ window.onload = function() {
         enableHighAccuracy: true, // 高精度で測定するオプション
         maximumAge: 60000,
         timeout: 30000, // GPS取得のタイムアウト時間を設定するオプション。(ミリ秒)これを過ぎるとエラーになる。
-    }
-  }
+    );
     
   var container = L.DomUtil.get("map");
   if (container != null) {
