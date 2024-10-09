@@ -12,8 +12,6 @@ var pulsingIcon2 = L.icon.pulse({
    ,heartbeat: 2
 });
 
-var marker;
-
 window.onload = function() {
   navigator.geolocation.getCurrentPosition(
   (position) => {
@@ -50,9 +48,9 @@ window.onload = function() {
 }
 
 function displayMap() {
-  map.removeLayer(marker);
+  map.removeLayer(this);
   map._onResize();
-  marker = L.marker([lat, long], {icon:pulsingIcon2}).addTo(map).bindPopup("now location!");
+  L.marker([lat, long], {icon:pulsingIcon2}).addTo(map).bindPopup("now location!");
 }
 
 function displayLogData() {
