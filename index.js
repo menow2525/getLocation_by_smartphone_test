@@ -68,7 +68,7 @@ function displayMap() {
 function displayLogData() {
   document.getElementById("accuracy").textContent = accuracy.toFixed(3) + "m";
   document.getElementById("speed").textContent = speed.toFixed(0) + "km/h";
-  document.getElementById("avgSpeed").textContent = avgSpeed + "km/h (AVG)"
+  document.getElementById("avgSpeed").textContent = avgSpeed.toFixed(2) + "km/h (AVG)"
 }
 
 navigator.geolocation.watchPosition(
