@@ -10,7 +10,7 @@ var speed = 0;
 var avgSpeedArray = [];
 var avgSpeed = 0;
 
-var z = 0;
+//var z = 0;
 
 var isCountDist = false;
 var dist = 0;
@@ -62,16 +62,14 @@ window.onload = function() {
   }).addTo(map);
 }
 
-window.addEventListener( "devicemotion", function( event ){
-    var x = event.accelerationIncludingGravity.x;
-    var y = event.accelerationIncludingGravity.y;
+/*window.addEventListener( "devicemotion", function( event ){
     z = event.accelerationIncludingGravity.z;
 
     if (z != null) {
         document.getElementById("accel").textContent = "X：" + x.toFixed(2) +"(m/s^2)" + "Y：" + y.toFixed(2) +"(m/s^2)" + "Z：" + z.toFixed(2) +"(m/s^2)";
     }
       
-});
+});*/
 
 function displayMap() {
   map.setView([lat, long], 18);
