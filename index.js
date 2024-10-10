@@ -95,6 +95,7 @@ function displayLogData() {
 function start(){
     dist = 0;
     isCountDist = true;
+    document.getElementById("status").textContent = "start";
 }
 
 // document.getElementById()でHTMLの中でid属性がstartの要素を取得し、変数buttonに代入する
@@ -105,6 +106,7 @@ startButton.onclick = start;
 // ボタンクリック関数
 function stop(){
     isCountDist = false;
+    document.getElementById("status").textContent = "stop";
     document.getElementById("distance").textContent = "Bata: " + dist.toFixed(3) + "m (Mileage)"
 }
 
