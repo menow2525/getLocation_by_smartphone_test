@@ -97,13 +97,15 @@ navigator.geolocation.watchPosition(
         avgAccuracyArray.push(avgAccuracy);
     }
       
-    speed = ((position.coords.speed) * 3600) / 1000; // 速度を取得
+    speed = position.coords.speed // 速度を取得
     
-    if (speed == null) {
-      speed = 0;
+    if (speed != null) {
+        speed = (speed * 3600) / 1000;
+        avgSpeedArray.push(parseInt(speed.toFixed(0)));　// 取得した速度を配列に追加する
+    } else {
+        speed = 0;
     }
-      
-    avgSpeedArray.push(parseInt(speed.toFixed(0)));　// 取得した速度を配列に追加する
+    
     avgSpeed = avgSpeedArray.reduce(function(sum, element) {
         return sum + element
     }, 0);
