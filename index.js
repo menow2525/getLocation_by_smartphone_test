@@ -10,8 +10,9 @@ var speed = 0;
 var avgSpeedArray = [];
 var avgSpeed = 0;
 
-var isCountDist = false;
 var z = 0;
+
+var isCountDist = false;
 var dist = 0;
 
 var pulsingIcon2 = L.icon.pulse({
@@ -80,6 +81,11 @@ function displayLogData() {
   document.getElementById("avgSpeed").textContent = avgSpeed.toFixed(2) + "km/h (AVG)"
 }
 
+function getAccelZ() {
+    z = event.accelerationIncludingGravity.z;
+    document.getElementById("accel").textContent = "Z: " + z + "(m/s^2)";
+}
+
 // ------------------------------------------------------------------------------
 // ボタンクリック関数
 function start(){
@@ -110,6 +116,8 @@ navigator.geolocation.watchPosition(
     long = position.coords.longitude; // 経度を取得
     accuracy = position.coords.accuracy; // 位置の精度取得(何メートルほど誤差があるか)
 
+    getAccelZ();
+
     if (accuracy == null) {
       accuracy = 999.9;
     }
@@ -128,8 +136,6 @@ navigator.geolocation.watchPosition(
     speed = position.coords.speed // 速度を取得
 
     if (isCountDist == true) {
-        z = event.accelerationIncludingGravity.z;
-        document.getElementById("accel").textContent = "Z: " + z + "(m/s^2)";
         dist += speed;
     }
     
