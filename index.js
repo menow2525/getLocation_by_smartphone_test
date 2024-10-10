@@ -106,11 +106,11 @@ navigator.geolocation.watchPosition(
 
     if (avgAccuracyArray.length > 20) {
         avgAccuracyArray = [];
-        avgAccuracyArray.puch(avgAccuracy);
+        avgAccuracyArray.push(avgAccuracy);
     }
     if (avgSpeedArray.length > 20) {
         avgSpeedArray = [];
-        avgSpeedArray.puch(avgSpeed);
+        avgSpeedArray.push(avgSpeed);
     }
 
     displayMap();
