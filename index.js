@@ -102,14 +102,16 @@ navigator.geolocation.watchPosition(
     if (speed != null) {
         speed = (speed * 3600) / 1000;
         avgSpeedArray.push(parseInt(speed.toFixed(0)));　// 取得した速度を配列に追加する
+
+        avgSpeed = avgSpeedArray.reduce(function(sum, element) {
+            return sum + element
+        }, 0);
+    avgSpeed = (avgSpeed / avgSpeedArray.length);
     } else {
         speed = 0;
     }
     
-    avgSpeed = avgSpeedArray.reduce(function(sum, element) {
-        return sum + element
-    }, 0);
-    avgSpeed = (avgSpeed / avgSpeedArray.length);
+    
       
     if (avgSpeedArray.length > 20) {
         avgSpeedArray = [];
