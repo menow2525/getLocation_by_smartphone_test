@@ -69,6 +69,7 @@ function displayMap() {
 }
 
 function displayLogData() {
+  console.log(avgAccuracyArray.length);
   document.getElementById("accuracy").textContent = accuracy.toFixed(3) + "m";
   document.getElementById("avgAccuracy").textContent = avgAccuracy.toFixed(3) + "m (AVG)"
   document.getElementById("speed").textContent = speed.toFixed(0) + "km/h";
@@ -92,8 +93,6 @@ navigator.geolocation.watchPosition(
         return sum + element
     }, 0);
     avgSpeed = (avgSpeed / avgSpeedArray.length);
-
-    console.log(avgAccuracyArray.length);
 
     if (avgAccuracyArray.length > 200) {
         avgAccuracyArray = [];
