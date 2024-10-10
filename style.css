@@ -1,6 +1,7 @@
 #textBlock {
   position: fixed;
   float: right;
+  text-align: right;
   top: 0;
   z-index: 9999;
   margin-top: 16px;
