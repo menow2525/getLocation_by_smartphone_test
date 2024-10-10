@@ -99,7 +99,7 @@ navigator.geolocation.watchPosition(
       
     speed = position.coords.speed // 速度を取得
     
-    if (speed != null || speed >= 1) {
+    if (speed != null && speed >= 1) {
         speed = (speed * 3600) / 1000;
         avgSpeedArray.push(parseInt(speed.toFixed(0)));　// 取得した速度を配列に追加する
 
