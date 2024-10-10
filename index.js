@@ -81,12 +81,9 @@ function displayLogData() {
   document.getElementById("avgSpeed").textContent = avgSpeed.toFixed(2) + "km/h (AVG)"
 }
 
-window.addEventListener("devicemotion", getAccelZ);
-
-function getAccelZ() {
-    z = event.accelerationIncludingGravity.z;
-    document.getElementById("accel").textContent = "Z: " + z + "(m/s^2)";
-}
+window.addEventListener("devicemotion", function(event) {
+    z = parseFloat(event.acceleration.z);   
+});
 
 // ------------------------------------------------------------------------------
 // ボタンクリック関数
