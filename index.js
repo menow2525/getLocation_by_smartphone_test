@@ -128,7 +128,7 @@ navigator.geolocation.watchPosition(
 
     if (isCountDist == true) {
         var z = event.accelerationIncludingGravity.z;
-        document.getElementById("accel").textContent = z;
+        document.getElementById("accel").textContent = "Z: " + z + "(m/s^2)";
         dist += speed;
     }
     
