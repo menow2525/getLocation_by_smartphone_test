@@ -10,6 +10,9 @@ var speed = 0;
 var avgSpeedArray = [];
 var avgSpeed = 0;
 
+var isCountDist = false;
+var dist = 0;
+
 var pulsingIcon2 = L.icon.pulse({
     iconSize:[20,20]
    ,color:'#57c6fd'
@@ -76,6 +79,30 @@ function displayLogData() {
   document.getElementById("avgSpeed").textContent = avgSpeed.toFixed(2) + "km/h (AVG)"
 }
 
+// ------------------------------------------------------------------------------
+// ボタンクリック関数
+function start(){
+    dist = 0;
+    isCountDist = true;
+}
+
+// document.getElementById()でHTMLの中でid属性がstartの要素を取得し、変数buttonに代入する
+let startButton = document.getElementById('start');
+// buttonのonclickプロパティに上記で宣言しているボタンクリック関数を代入
+startButton.onclick = start;
+
+// ボタンクリック関数
+function stop(){
+    isCountDist = false;
+    document.getElementById("distance").textContent = "Bata: " + dist.toFixed(3) + "m (Mileage)"
+}
+
+// document.getElementById()でHTMLの中でid属性がstartの要素を取得し、変数buttonに代入する
+let stopButton = document.getElementById('stop');
+// buttonのonclickプロパティに上記で宣言しているボタンクリック関数を代入
+stopButton.onclick = stop;
+// ------------------------------------------------------------------------------
+
 navigator.geolocation.watchPosition(
   (position) => {
     lat = position.coords.latitude; // 緯度を取得
@@ -97,9 +124,13 @@ navigator.geolocation.watchPosition(
         avgAccuracyArray.push(avgAccuracy);
     }
       
-    speed = parseInt(position.coords.speed.toFixed(0)) // 速度を取得
+    speed = position.coords.speed // 速度を取得
+
+    if (isCountDist == true) {
+        dist += speed;
+    }
     
-    if (speed >= 1) {
+    if (speed >= 1.000) {
         speed = (speed * 3600) / 1000;
         avgSpeedArray.push(parseInt(speed.toFixed(0)));　// 取得した速度を配列に追加する
 
