@@ -63,10 +63,15 @@ window.onload = function() {
 }
 
 window.addEventListener( "devicemotion", function( event ){
-      z = event.accelerationIncludingGravity.z;
+    var x = event.accelerationIncludingGravity.x;
+    var y = event.accelerationIncludingGravity.y;
+    z = event.accelerationIncludingGravity.z;
 
-      document.getElementById("accel").textContent = "Z：" + z.toFixed(2) +"(m/s^2)";
-    });
+    if (z != null) {
+        document.getElementById("accel").textContent = "X：" + x.toFixed(2) +"(m/s^2)" + "Y：" + y.toFixed(2) +"(m/s^2)" + "Z：" + z.toFixed(2) +"(m/s^2)";
+    }
+      
+});
 
 function displayMap() {
   map.setView([lat, long], 18);
