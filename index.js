@@ -94,20 +94,20 @@ navigator.geolocation.watchPosition(
     }, 0);
     avgSpeed = (avgSpeed / avgSpeedArray.length);
 
-    if (avgAccuracyArray.length > 200) {
-        avgAccuracyArray = [];
-        avgAccuracyArray.puch(avgAccuracy);
-    }
-    if (avgSpeedArray.length > 200) {
-        avgSpeedArray = [];
-        avgSpeedArray.puch(avgSpeed);
-    }
-
     if (accuracy == null) {
       accuracy = 999.9;
     }
     if (speed == null) {
       speed = 0;
+    }
+
+    if (avgAccuracyArray.length > 50) {
+        avgAccuracyArray = [];
+        avgAccuracyArray.puch(avgAccuracy);
+    }
+    if (avgSpeedArray.length > 50) {
+        avgSpeedArray = [];
+        avgSpeedArray.puch(avgSpeed);
     }
 
     displayMap();
