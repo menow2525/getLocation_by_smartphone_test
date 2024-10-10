@@ -97,22 +97,22 @@ navigator.geolocation.watchPosition(
         avgAccuracyArray.push(avgAccuracy);
     }
       
-    speed = position.coords.speed // 速度を取得
+    speed = parseInt(position.coords.speed.toFixed(0)) // 速度を取得
     
-    if (speed != null && speed >= 1) {
+    if (speed >= 1) {
         speed = (speed * 3600) / 1000;
         avgSpeedArray.push(parseInt(speed.toFixed(0)));　// 取得した速度を配列に追加する
 
         avgSpeed = avgSpeedArray.reduce(function(sum, element) {
             return sum + element
         }, 0);
-    avgSpeed = (avgSpeed / avgSpeedArray.length);
+        avgSpeed = (avgSpeed / avgSpeedArray.length);
+    } else if (speed == null){
+        speed = 0;
     } else {
         speed = 0;
     }
-    
-    
-      
+
     if (avgSpeedArray.length > 20) {
         avgSpeedArray = [];
         avgSpeedArray.push(avgSpeed);
