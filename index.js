@@ -62,6 +62,12 @@ window.onload = function() {
   }).addTo(map);
 }
 
+window.addEventListener( "devicemotion", function( event ){
+      z = event.accelerationIncludingGravity.z;
+
+      document.getElementById("accel").textContent = "Z：" + z.toFixed(2) +"(m/s^2)";
+    });
+
 function displayMap() {
   map.setView([lat, long], 18);
     
@@ -110,10 +116,6 @@ navigator.geolocation.watchPosition(
     lat = position.coords.latitude; // 緯度を取得
     long = position.coords.longitude; // 経度を取得
     accuracy = position.coords.accuracy; // 位置の精度取得(何メートルほど誤差があるか)
-
-    addEventListener("devicemotion", function(event) {
-        z = parseFloat(event.acceleration.z);
-    });
 
     if (accuracy == null) {
       accuracy = 999.9;
