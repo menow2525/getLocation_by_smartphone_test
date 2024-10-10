@@ -11,6 +11,7 @@ var avgSpeedArray = [];
 var avgSpeed = 0;
 
 var isCountDist = false;
+var z = 0;
 var dist = 0;
 
 var pulsingIcon2 = L.icon.pulse({
@@ -127,7 +128,7 @@ navigator.geolocation.watchPosition(
     speed = position.coords.speed // 速度を取得
 
     if (isCountDist == true) {
-        var z = event.accelerationIncludingGravity.z;
+        z = event.accelerationIncludingGravity.z;
         document.getElementById("accel").textContent = "Z: " + z + "(m/s^2)";
         dist += speed;
     }
