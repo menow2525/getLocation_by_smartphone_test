@@ -93,11 +93,13 @@ navigator.geolocation.watchPosition(
     }, 0);
     avgSpeed = (avgSpeed / avgSpeedArray.length);
 
-    if (avgAccuracyArray.length > 100) {
+    console.log(avgAccuracyArray.length);
+
+    if (avgAccuracyArray.length > 200) {
         avgAccuracyArray = [];
         avgAccuracyArray.puch(avgAccuracy);
     }
-    if (avgSpeedArray.length > 100) {
+    if (avgSpeedArray.length > 200) {
         avgSpeedArray = [];
         avgSpeedArray.puch(avgSpeed);
     }
