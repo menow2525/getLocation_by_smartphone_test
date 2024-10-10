@@ -3,6 +3,9 @@ var lat = 0;
 var long = 0;
 
 var accuracy = 0;
+var avgAccuracyArray = [];
+var avgAccuracy = 0;
+
 var speed = 0;
 var avgSpeedArray = [];
 var avgSpeed = 0;
@@ -67,6 +70,7 @@ function displayMap() {
 
 function displayLogData() {
   document.getElementById("accuracy").textContent = accuracy.toFixed(3) + "m";
+  document.getElementById("avgAccuracy").textContent = avgAccuracy.toFixed(3) + "m (AVG)"
   document.getElementById("speed").textContent = speed.toFixed(0) + "km/h";
   document.getElementById("avgSpeed").textContent = avgSpeed.toFixed(2) + "km/h (AVG)"
 }
@@ -76,12 +80,27 @@ navigator.geolocation.watchPosition(
     lat = position.coords.latitude; // 緯度を取得
     long = position.coords.longitude; // 経度を取得
     accuracy = position.coords.accuracy; // 位置の精度取得(何メートルほど誤差があるか)
+    avgAccuracyArray.push(parseFloat(accuracy.toFixed(3))); // 取得した精度を配列に追加する
+    avgAccuracy = avgAccuracyArray.reduce(function(sum, element) {
+        return sum + element
+    }, 0);
+    avgAccuracy = (avgAccuracy / avgAccuracyArray.length);
+      
     speed = ((position.coords.speed) * 3600) / 1000; // 速度を取得
     avgSpeedArray.push(parseInt(speed.toFixed(0)));　// 取得した速度を配列に追加する
     avgSpeed = avgSpeedArray.reduce(function(sum, element) {
         return sum + element
     }, 0);
     avgSpeed = (avgSpeed / avgSpeedArray.length);
+
+    if (avgAccuracyArray.length > 100) {
+        avgAccuracyArray = [];
+        avgAccuracyArray.puch(avgAccuracy);
+    }
+    if (avgSpeedArray.length > 100) {
+        avgSpeedArray = [];
+        avgSpeedArray.puch(avgSpeed);
+    }
 
     if (accuracy == null) {
       accuracy = 999.9;
