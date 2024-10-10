@@ -127,6 +127,8 @@ navigator.geolocation.watchPosition(
     speed = position.coords.speed // 速度を取得
 
     if (isCountDist == true) {
+        var z = event.accelerationIncludingGravity.z;
+        document.getElementById("accel").textContent = z;
         dist += speed;
     }
     
