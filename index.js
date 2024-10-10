@@ -4,6 +4,8 @@ var long = 0;
 
 var accuracy = 0;
 var speed = 0;
+var avgSpeedArray = [];
+var avgSpeed = 0;
 
 var pulsingIcon2 = L.icon.pulse({
     iconSize:[20,20]
@@ -66,6 +68,7 @@ function displayMap() {
 function displayLogData() {
   document.getElementById("accuracy").textContent = accuracy.toFixed(3) + "m";
   document.getElementById("speed").textContent = speed.toFixed(0) + "km/h";
+  document.getElementById("avgSpeed").textContent = avgSpeed + "km/h (AVG)"
 }
 
 navigator.geolocation.watchPosition(
@@ -74,6 +77,11 @@ navigator.geolocation.watchPosition(
     long = position.coords.longitude; // 経度を取得
     accuracy = position.coords.accuracy; // 位置の精度取得(何メートルほど誤差があるか)
     speed = ((position.coords.speed) * 3600) / 1000; // 速度を取得
+    avgSpeedArray.push(parseInt(speed.toFixed(0)));　// 取得した速度を配列に追加する
+    avgSpeed = avgSpeedArray.reduce(function(sum, element) {
+        return sum + element
+    }, 0);
+    avgSpeed = (avgSpeed / avgSpeedArray.length);
 
     if (accuracy == null) {
       accuracy = 999.9;
