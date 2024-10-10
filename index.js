@@ -91,6 +91,11 @@ navigator.geolocation.watchPosition(
         return sum + element
     }, 0);
     avgAccuracy = (avgAccuracy / avgAccuracyArray.length);
+
+    if (avgAccuracyArray.length > 20) {
+        avgAccuracyArray = [];
+        avgAccuracyArray.push(avgAccuracy);
+    }
       
     speed = ((position.coords.speed) * 3600) / 1000; // 速度を取得
     
@@ -103,11 +108,7 @@ navigator.geolocation.watchPosition(
         return sum + element
     }, 0);
     avgSpeed = (avgSpeed / avgSpeedArray.length);
-
-    if (avgAccuracyArray.length > 20) {
-        avgAccuracyArray = [];
-        avgAccuracyArray.push(avgAccuracy);
-    }
+      
     if (avgSpeedArray.length > 20) {
         avgSpeedArray = [];
         avgSpeedArray.push(avgSpeed);
