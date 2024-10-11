@@ -93,6 +93,7 @@ function displayLogData() {
 // ------------------------------------------------------------------------------
 // ボタンクリック関数
 function start(){
+    polyline.remove();
     dist = 0;
     isCountDist = true;
     document.getElementById("status").textContent = "start";
@@ -141,6 +142,7 @@ navigator.geolocation.watchPosition(
 
     if (isCountDist == true) {
         dist += speed;
+        L.polyline({ let, long },  options?)
     }
     
     if (speed >= 1.000) {
