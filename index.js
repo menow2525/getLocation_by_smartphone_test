@@ -9,9 +9,9 @@ var avgAccuracy = 0;
 var speed = 0;
 var avgSpeedArray = [];
 var avgSpeed = 0;
-var polyline;
 
 //var z = 0;
+var polyline;
 
 var isCountDist = false;
 var dist = 0;
@@ -94,7 +94,6 @@ function displayLogData() {
 // ------------------------------------------------------------------------------
 // ボタンクリック関数
 function start(){
-    polyline.remove();
     dist = 0;
     isCountDist = true;
     document.getElementById("status").textContent = "start";
