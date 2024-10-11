@@ -79,8 +79,6 @@ function rotateMap(angle) {
 
 function displayMap() {
   map.setView([lat, long], 18);
-    // 例: 45度回転
-　rotateMap(45);
     
   if (!marker) {
       marker = L.marker([lat, long], {icon:pulsingIcon2}).addTo(map).bindPopup("now location!");
@@ -148,6 +146,8 @@ navigator.geolocation.watchPosition(
 
     if (isCountDist == true) {
         dist += speed;
+        // 例: 45度回転
+　      rotateMap(45);
     }
     
     if (speed >= 1.000) {
