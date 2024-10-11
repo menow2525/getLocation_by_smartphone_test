@@ -53,6 +53,7 @@ window.onload = function() {
   map = L.map("map", {
     zoomDelta: 0.2, // ズームの変化量を調整
     zoomSnap: 0.2, // ズームスナップの設定
+    rotate: true,
   }).setView([lat, long], 18);
     
     //OpenStreetMapの地図
