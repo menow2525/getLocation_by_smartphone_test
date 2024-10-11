@@ -72,6 +72,12 @@ window.onload = function() {
       
 });*/
 
+// 地図を回転させる関数
+function rotateMap(angle) {
+    map.rotateMap(angle);
+}
+
+
 function displayMap() {
   map.setView([lat, long], 18);
     
@@ -141,6 +147,7 @@ navigator.geolocation.watchPosition(
 
     if (isCountDist == true) {
         dist += speed;
+        rotateMap(15);
     }
     
     if (speed >= 1.000) {
