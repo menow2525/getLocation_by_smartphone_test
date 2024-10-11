@@ -142,7 +142,7 @@ navigator.geolocation.watchPosition(
 
     if (isCountDist == true) {
         dist += speed;
-        L.polyline({ let, long },  options?)
+        var polyline = L.polyline({let, long}, {color: 'red'}).addTo(map);
     }
     
     if (speed >= 1.000) {
