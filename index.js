@@ -63,6 +63,11 @@ window.onload = function() {
   }).addTo(map);
 }
 
+// 地図を回転する関数
+function rotateMap(angle) {
+    map.setBearing(angle);
+}
+
 /*window.addEventListener( "devicemotion", function( event ){
     z = event.accelerationIncludingGravity.z;
 
@@ -74,6 +79,8 @@ window.onload = function() {
 
 function displayMap() {
   map.setView([lat, long], 18);
+    // 例: 45度回転
+　rotateMap(45);
     
   if (!marker) {
       marker = L.marker([lat, long], {icon:pulsingIcon2}).addTo(map).bindPopup("now location!");
