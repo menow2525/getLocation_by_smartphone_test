@@ -9,6 +9,7 @@ var avgAccuracy = 0;
 var speed = 0;
 var avgSpeedArray = [];
 var avgSpeed = 0;
+var polyline;
 
 //var z = 0;
 
@@ -142,7 +143,7 @@ navigator.geolocation.watchPosition(
 
     if (isCountDist == true) {
         dist += speed;
-        var polyline = L.polyline({let, long}, {color: 'red'}).addTo(map);
+        polyline = L.polyline({let, long}, {color: 'red'}).addTo(map);
     }
     
     if (speed >= 1.000) {
