@@ -53,7 +53,6 @@ window.onload = function() {
   map = L.map("map", {
     zoomDelta: 0.2, // ズームの変化量を調整
     zoomSnap: 0.2, // ズームスナップの設定
-    rotate: true,
   }).setView([lat, long], 18);
     
     //OpenStreetMapの地図
@@ -71,12 +70,6 @@ window.onload = function() {
     }
       
 });*/
-
-// 地図を回転させる関数
-function rotateMap(angle) {
-    map.rotateMap(angle);
-}
-
 
 function displayMap() {
   map.setView([lat, long], 18);
@@ -147,7 +140,6 @@ navigator.geolocation.watchPosition(
 
     if (isCountDist == true) {
         dist += speed;
-        rotateMap(15);
     }
     
     if (speed >= 1.000) {
